@@ -1,0 +1,46 @@
+.hover-container:hover .hover1,
+.hover-container:hover .hover2,
+.hover-container:hover .hover3,
+.hover-container:hover .hover4,
+.hover-container:hover .hover5,
+.hover-container:hover .hover6,
+.hover-container:hover .hover7,
+.hover-container:hover .hover8,
+.hover-container:hover .hover9,
+.hover-container:hover .hover10 {
+  /* Hover effect styles */
+}
+
+/* Hover effect definitions */
+.hover1:hover {
+  background-color: #4684ad69!important;
+  color: white!important;
+}
+.hover2:hover {
+  text-decoration: underline;
+}
+.hover3:hover {
+  font-size: 1.2em;
+}
+.hover4:hover {
+  color: #00ff00;
+}
+.hover5:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.hover6:hover {
+  transform: rotate(45deg);
+}
+.hover7:hover {
+  transform: scale(1.2);
+}
+.hover8:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+.hover9:hover {
+  border: 1px solid #0000ff;
+}
+.hover10:hover {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300&display=swap');
+
+body {
+  font-family: 'Noto Sans Hebrew', sans-serif !important;
+  background-color: rgb(27, 1, 20) !important;
+  background: linear-gradient(to right, #e3f6ff, #3c4263);
+}
+
+.dec-off {
+  text-decoration: none !important;
+}
+
+.border-none {
+  border: none;
+}
+
+.cursor {
+  cursor: pointer !important;
+}
+
+.cursor-off {
+  cursor: auto !important;
+}
+
+.clear-float {
+  clear: both;
+}
+
+.overflow_hidden {
+  overflow: hidden !important;
+}
+
+.dec-off {
+  text-decoration: none !important;
+}
+
+.border-off {
+  border: none !important;
+}
+
+.list-style-off {
+  list-style: none;
+}
+
+.hover-off:hover,
+.active-off:active {
+  background-color: initial !important;
+  color: initial !important;
+}
+
+.pos-fix::after {
+  position: fixed !important;
+}
+
+.removed-button-style {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.details-container {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.details-container.visible {
+  display: block;
+  opacity: 1;
+}
+
+@media screen and (min-width: 948px) {
+  .col1-responsive {
+  }
+}
+
+@media screen and (max-width: 946px) {
+  .col1-responsive {
+    width: 100% !important;
+  }
+  .flex-row-responsive {
+    flex-direction: column !important;
+  }
+}

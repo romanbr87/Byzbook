@@ -1,0 +1,141 @@
+.bgc-custom1{
+    background-color: rgba(255, 255, 255, 0.205)!important;
+}
+.bgc1 {
+    background-color: rgb(154, 141, 211);
+    transition: background-color 0.3s ease;
+}
+
+.bgc1:hover {
+    background-color: rgb(165, 165, 241);
+
+}
+
+.bgc1:active {
+    background-color: rgb(211, 211, 224);
+}
+.bgc2 {
+    background-color: rgb(106, 214, 182);
+    transition: background-color 0.3s ease;
+}
+
+.bgc2:hover {
+    background-color: rgb(193, 228, 233);
+
+}
+
+.bgc2:active {
+    background-color: rgb(193, 193, 197);
+}
+
+.bgc3 {
+    background: linear-gradient(45deg, rgb(119, 62, 100), rgb(242, 101, 101));
+    transition: background-color 0.3s ease;
+}
+
+.bgc3:hover {
+    background: linear-gradient(45deg, rgb(216, 214, 214), rgb(255, 126, 126));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc3:active {
+    background: linear-gradient(45deg, rgb(185, 112, 219), rgb(199, 99, 99));
+}
+
+.bgc4 {
+    background: linear-gradient(45deg, rgb(242, 252, 225), rgb(212, 87, 87));
+    transition: background-color 0.3s ease;
+}
+
+.bgc4:hover {
+    background: linear-gradient(45deg, rgb(228, 255, 191), rgb(163, 232, 125));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc4:active {
+    background: linear-gradient(45deg, rgb(201, 247, 147), rgb(115, 151, 87));
+}
+
+.bgc5 {
+    background: linear-gradient(45deg, rgba(196, 106, 214, 0.205), rgb(200, 167, 228));
+    transition: background-color 0.3s ease;
+}
+
+.bgc5:hover {
+    background: linear-gradient(45deg, rgba(66, 5, 179, 0.247), rgb(85, 227, 211));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc5:active {
+    background: linear-gradient(45deg, rgb(235, 255, 250), rgb(121, 29, 197));
+}
+
+.bgc6 {
+    background: linear-gradient(45deg, rgb(252, 99, 38), rgb(219, 99, 0));
+    transition: background-color 0.3s ease;
+}
+
+.bgc6:hover {
+    background: linear-gradient(45deg, rgb(166, 255, 246), rgb(0, 55, 234));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc6:active {
+    background: linear-gradient(45deg, rgb(244, 255, 253), rgb(214, 78, 0));
+}
+
+.bgc7 {
+    background: linear-gradient(45deg, rgba(127, 162, 196, 0.719), rgb(57, 134, 222));
+    transition: background-color 0.3s ease;
+}
+
+.bgc7:hover {
+    background: linear-gradient(45deg, rgba(157, 196, 238, 0.767), rgb(92, 154, 230));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc7:active {
+    background: linear-gradient(45deg, rgb(142, 185, 255))
+}
+
+.bgc8 {
+    background: linear-gradient(45deg, rgb(193, 173, 255), rgb(156, 112, 255));
+    transition: background-color 0.3s ease;
+}
+
+.bgc8:hover {
+    background: linear-gradient(45deg, rgb(226, 214, 255), rgb(186, 162, 255));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc8:active {
+    background: linear-gradient(45deg, rgb(180, 174, 199), rgb(144, 112, 255));
+}
+
+.bgc9 {
+    background: linear-gradient(45deg, rgb(89, 133, 253), rgb(247, 121, 77));
+    transition: background-color 0.3s ease;
+}
+
+.bgc9:hover {
+    background: linear-gradient(45deg, rgb(255, 134, 104), rgb(255, 141, 99));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc9:active {
+    background: linear-gradient(45deg, rgb(255, 192, 159), rgb(230, 112, 56));
+}
+
+.bgc10 {
+    background: linear-gradient(45deg, rgb(221, 169, 255), rgb(221, 91, 221));
+    transition: background-color 0.3s ease;
+}
+
+.bgc10:hover {
+    background: linear-gradient(45deg, rgb(255, 193, 255), rgb(234, 117, 234));
+    color: rgb(23, 5, 63) !important;
+}
+
+.bgc10:active {
+    background: linear-gradient(45deg, rgb(255, 156, 255), rgb(204, 61, 204));
+}
