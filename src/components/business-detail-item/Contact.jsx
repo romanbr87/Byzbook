@@ -1,4 +1,5 @@
 import React from "react";
+import { isMobile } from "react-device-detect";
 import { FaPhoneVolume, FaWhatsappSquare } from "react-icons/fa";
 import { whatsappLink } from "../../api";
 import Button from "../../Element/Button";
@@ -46,7 +47,7 @@ const Contact = ({ data }) => {
 
             {/*End Phone  */}
             {/* Whatsapp & Email */}
-            <div className="row align-items-center gap-2 ">
+            <div className={`${isMobile ? "d-flex gap-1 flex-column" : 'row'} align-items-center gap-2`}>
               {data?.gsx$whatsapp && (
                 <label className="text-black radius2 col-sm shadow ls3 p-1 fs_15">
                   <Button

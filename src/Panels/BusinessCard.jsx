@@ -5,6 +5,7 @@ import { FaLocationPin } from "react-icons/fa6";
 import { Col } from "react-bootstrap";
 import Comment from "../components/homepage/Comment";
 import ReportModal from "../components/ReportModal";
+import { isMobile } from "react-device-detect";
 
 export default function BusinessCard({
   data: {
@@ -167,7 +168,7 @@ export default function BusinessCard({
                     <span className="fs_15 d-flex pe-2">
                       {gsx$worktime[val] == undefined ? "" : gsx$worktime[val]}
                     </span>
-                  </a>{" "}
+                  </a>
                 </Col>
               )
             )}
@@ -179,7 +180,7 @@ export default function BusinessCard({
         <>
           <button
             type="button"
-            className="btn2"
+            className={`btn2  ${isMobile && 'me-2'}`}
             onClick={(e) => setReportModal((s) => ({ show: !s.show }))}
           >
             דיווח

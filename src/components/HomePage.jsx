@@ -42,7 +42,7 @@ export default function HomePage(props) {
 
   if (!cities || !types) return <React.Fragment>NULL</React.Fragment>;
   return (
-    <div className="bg1 w_100">
+    <div className="bg1 w_100" style={{marginTop: "-30px"}}>
       <div
         className="jumbotron p-2 radius1 d-flex flex-column"
         style={{ padding: "0", borderRadius: "0" }}

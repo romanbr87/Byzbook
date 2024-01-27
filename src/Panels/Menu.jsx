@@ -9,6 +9,7 @@ import "../styles/style.css";
 import { content } from "../utils/content/content";
 import { useMediaQuery } from 'react-responsive';
 import { apiRouteList } from "../utils/api-routes";
+import { isBrowser } from "react-device-detect";
 export default function Menu() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [resMsg, setResMsg] = useState({ show: false, text: `` });
@@ -48,7 +49,7 @@ export default function Menu() {
     <div className="text-center w_100 d-flex gap-2 flex-column align-items-center justify-content-center text-center ">
       {isMobile &&<button
         onClick={() => setshowMenu((s) => !s)}
-        className="btn1 p-2 mt-1 radius4 fs_15 ls4"
+        className={`btn1 p-2 mt-1 radius4 fs_15 ${!showMenu && "mb-1"}`}
       >
         <AiOutlineMenuFold size={33} />
         פתח תפריט
@@ -62,8 +63,9 @@ export default function Menu() {
       )}
 
       {showMenu && (
-        <nav className="d-flex text-center  align-items-center justify-content-center w_100">
-          <ul className="row gap-2 w_100  ">
+        <nav className={`d-flex text-center align-items-center justify-content-end w_100 
+        ${isBrowser && "mt-3 mb-0 p-0"}`}>
+          <ul className="row gap-2 w_100">
             {menuContent.navList?.map((navItem, navIndex) => {
               if (navItem.loggedOnly) {
                 if (user.role === "") {

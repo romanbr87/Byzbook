@@ -8,9 +8,9 @@ import { detailsContentFields } from "../utils/content/detailsContentFields";
 const SingleBusinessPage = () => {
   const { _id } = useParams();
   const { data } = useFetch(`${apiRouteList.business}business/${_id}`);
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
   const {
     gsx$desc,
   } = !data
