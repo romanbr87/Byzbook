@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import SiteBtnPanel from "../Element/SiteBtnPanel";
 import { AiTwotonePhone } from "react-icons/ai";
 import { FaLocationPin } from "react-icons/fa6";
+import { MdOutlineWatchLater } from "react-icons/md";
 import { Col } from "react-bootstrap";
 import Comment from "../components/homepage/Comment";
 import ReportModal from "../components/ReportModal";
@@ -146,33 +147,27 @@ export default function BusinessCard({
           </div>
           <div className="d-flex flex-column p-3 pt-0 radius3">
             {[0, 1, 2].map((val, i) =>
-              !gsx$phone[val] ? (
+              !gsx$worktime[val] ? (
                 ""
               ) : (
                 <Col
                   key={i}
                   className="align-items-center justify-content-center text-center"
                 >
-                  <a
+                  <label
                     className="mt-1 dec-off d-flex bgc1 fs_color1 p-2 text-center"
-                    title={"טלפון" + (val + 1)}
-                    href={
-                      gsx$worktime[val] == null
-                        ? "javascript:void(0)"
-                        : "tel:" + gsx$worktime[val].split(" ")[0]
-                    }
+                    title={"שעות עבודה" + (val + 1)}
                   >
-                    <span>
-                      <AiTwotonePhone size={21} className="" />
-                    </span>
+
                     <span className="fs_15 d-flex pe-2">
+                      <MdOutlineWatchLater className="mt-1 ms-1"/>
                       {gsx$worktime[val] == undefined ? "" : gsx$worktime[val]}
                     </span>
-                  </a>
+                  </label>
                 </Col>
               )
             )}
-            </div>
+          </div>
         </div>
         {/* -------------------------------- */}
         <hr className="mt-2" />
