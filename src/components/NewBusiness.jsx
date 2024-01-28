@@ -17,6 +17,7 @@ import LinksSection from "./form-field-elements/LinksSection";
 import WorkHours from "./form-field-elements/WorkHours";
 import CommentsField from "./form-field-elements/CommentsField";
 import TypeSelect from "./form-field-elements/TypeSelect";
+import BusinessCard from "../Panels/BusinessCard"
 
 export default function NewBusiness(props) {
   const navigate = useNavigate();
@@ -38,7 +39,6 @@ export default function NewBusiness(props) {
   const [changed, setChanged] = useState();
   const [localData, setLocalData] = useState();
   const [editable, setEditable] = useState(true);
-  const [fun, setFun] = useState();
   const { data } = useFetch("/");
   const types =
     data?.types?.sort((a, b) => a.gsx$type.localeCompare(b.gsx$type)) || [];
@@ -73,15 +73,14 @@ export default function NewBusiness(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (fun === 0) addNewBusiness();
-    else if (fun === 1) setEditable(false);
+    addNewBusiness();
   };
+
   const addNewBusiness = async () => {
     const data = formValues;
     if (data?.$gsx$type) data.gsx$type = types[0]?._id;
     if (data?.$gsx$city) data.gsx$city = cities[0];
     data.gsx$active = false;
-    data.gsx$link = String(list?.length + 1);
     const formData = new FormData();
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
@@ -89,7 +88,15 @@ export default function NewBusiness(props) {
       }
     }
 
-    return businessServices.createBus(formData);
+    try {
+      businessServices.createBus(formData);
+    }
+
+    catch (err) {
+      console.log(err);
+    }
+
+    window.location.href = "/"
   };
 
   useEffect(() => {
@@ -128,6 +135,7 @@ export default function NewBusiness(props) {
     }
     if (index !== null && index !== undefined && index < 3) {
       let updatedForm = { ...formValues };
+      if (!updatedForm[labelText]) updatedForm[labelText] = [null, null, null];
       updatedForm[labelText][index] = value;
       value = updatedForm[labelText];
     }
@@ -139,99 +147,87 @@ export default function NewBusiness(props) {
     <React.Fragment>
       <div className="container p-2 mb-5">
         <div className="row listRow1">
-          {!editable ? (
-            <div className="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4"></div>
-          ) : (
-            <div className="col-sm d-flex flex-column bg-secondary align-items-center justify-content-center text-center radius8 p-3">
-              <h2
-                className="p-2 radius5 w_30 shadow fs_27 fw-bold bgc1 fs_color1 text-center"
-                id="title"
-              >
-                עסק חדש
-              </h2>
+          <div className="col-sm d-flex flex-column bg-secondary align-items-center justify-content-center text-center radius8 p-3">
+            <h2
+              className="p-2 radius5 w_30 shadow fs_27 fw-bold bgc1 fs_color1 text-center"
+              id="title"
+            >
+              עסק חדש
+            </h2>
 
-              {errMsg.state && <>{errMsg.text}</>}
-              <form id="form" onSubmit={handleSubmit}>
-                <TypeSelect
-                  handleInputChange={handleInputChange}
-                  types={types}
-                />
+            {errMsg.state && <>{errMsg.text}</>}
+            <form id="form" onSubmit={handleSubmit}>
+              <TypeSelect
+                handleInputChange={handleInputChange}
+                types={types}
+              />
 
-                <ImageUpload handleFileChange={handleFileChange} />
+              <ImageUpload handleFileChange={handleFileChange} />
 
-                <CitySelect
-                  changeVal={changeVal}
-                  handleInputChange={handleInputChange}
-                  notEmptyVal={notEmptyVal}
-                />
-                {/* Phone Contact Section ----------------- */}
-                <PhoneContactSection
-                  contactForm={contactForm}
-                  handleInputChange={handleInputChange}
-                />
-                {/* ---------------------------- */}
-                <LinksSection
-                  handleInputChange={handleInputChange}
-                  linksForm={linksForm}
-                />
+              <CitySelect
+                changeVal={changeVal}
+                handleInputChange={handleInputChange}
+                notEmptyVal={notEmptyVal}
+              />
+              {/* Phone Contact Section ----------------- */}
+              <PhoneContactSection
+                contactForm={contactForm}
+                handleInputChange={handleInputChange}
+              />
+              {/* ---------------------------- */}
+              <LinksSection
+                handleInputChange={handleInputChange}
+                linksForm={linksForm}
+              />
 
-                {/* ----------------------------------------- */}
-                <CommentsField
-                  commentForm={commentForm}
-                  handleInputChange={handleInputChange}
-                />
-                {/* -------------------------- */}
-                <label className="label1 text-white bgc8 radius2 p-1">
-                  {workHoursForm.title}
+              {/* ----------------------------------------- */}
+              <CommentsField
+                commentForm={commentForm}
+                handleInputChange={handleInputChange}
+              />
+              {/* -------------------------- */}
+              <label className="label1 text-white bgc8 radius2 p-1">
+                {workHoursForm.title}
+              </label>
+              <WorkHours
+                handleInputChange={handleInputChange}
+                workHoursForm={workHoursForm}
+              />
+
+              <div className="">
+                <label className="text-white fs_18">{descForm.label}</label>
+                <textarea
+                  className="form-control"
+                  rows="5"
+                  onChange={(e) => handleInputChange(e, `תיאור`, `gsx$desc`)}
+                  placeholder={descForm.placeholder}
+                  {...(descForm.required ? { required: true } : {})}
+                ></textarea>
+              </div>
+
+              {/* ------------------------- */}
+
+              <div className="d-flex  flex-column">
+                <label className="bgc1 radius2 text-center fs_color1 ls2 fs_18  mt-3 mb-2 p-1">
+                  תגיות
                 </label>
-                <WorkHours
+                <TagsComponent
                   handleInputChange={handleInputChange}
-                  workHoursForm={workHoursForm}
+                  setFormValues={setFormValues}
+                />
+              </div>
+
+              {/* --------------------- */}
+              <div className="mt-3 mb-3 d-flex align-items-center p-2 justify-content-center">
+                <Button
+                  type="submit"
+                  className="btn2 btn radius2 w_50 btn-warning btn-md pull-left"
+                  btnText={`שמירה`}
                 />
 
-                <div className="">
-                  <label className="text-white fs_18">{descForm.label}</label>
-                  <textarea
-                    className="form-control"
-                    rows="5"
-                    onChange={(e) => handleInputChange(e, `תיאור`, `gsx$desc`)}
-                    placeholder={descForm.placeholder}
-                    {...(descForm.required ? { required: true } : {})}
-                  ></textarea>
-                </div>
-
-                {/* ------------------------- */}
-
-                <div className="d-flex  flex-column">
-                  <label className="bgc1 radius2 text-center fs_color1 ls2 fs_18  mt-3 mb-2 p-1">
-                    תגיות
-                  </label>
-                  <TagsComponent
-                    handleInputChange={handleInputChange}
-                    setFormValues={setFormValues}
-                  />
-                </div>
-
-                {/* --------------------- */}
-                <div className="mt-3 mb-3 d-flex align-items-center p-2 justify-content-between">
-                  <Button
-                    type="submit"
-                    className="btn2 btn radius2 w_50 btn-warning btn-md pull-left"
-                    btnText={`שמירה`}
-                    onClickHandler={(e) => setFun(0)}
-                  />
-
-                  <Button
-                    type="submit"
-                    className="btn btn1 w_50 radius2 btn-info btn-md pull-right"
-                    onClickHandler={(e) => setFun(1)}
-                    btnText={"להציג עסק"}
-                  />
-
-                </div>
-              </form>
-            </div>
-          )}
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </React.Fragment>
