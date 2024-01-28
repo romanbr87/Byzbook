@@ -38,7 +38,7 @@ export default function About() {
         style={{ paddingBottom: "15em", paddingTop: "10px" }}
       >
         <div className="row typeEditor radius2">
-          <div className="col-lg-8 col-md-8 radius2 mb-4">
+          <div className="col-lg-6 col-md-6 radius2 mb-4">
             <div
               className={`${
                 isBrowser ? "p-5" : ""
@@ -76,7 +76,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className={"col-lg-4 col-md-4"}>
+          <div className={"col-lg-4 col-md-6 mt-3"}>
             <span
               className="btn btn-sm glyphicon glyphicon-refresh"
               style={{ top: "3px" }}
