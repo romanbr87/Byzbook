@@ -4,8 +4,8 @@ const context = React.createContext();
 
 export const mongoRegex_id = /^[0-9a-fA-F]{24}$/
 export const whatsappLink = `https://api.whatsapp.com/send?phone=`;
-export const serverURL = (path) => `http://localhost:8081${path}`;
-//export const serverURL = (path) => `https://itchy-cyan-antelope.cyclic.app${path}`;
+//export const serverURL = (path) => `http://localhost:8081${path}`;
+export const serverURL = (path) => `https://itchy-cyan-antelope.cyclic.app${path}`;
 export const Provider = context.Provider;
 export const Consumer = context.Consumer;
 export const divideArray = (n, array) =>
